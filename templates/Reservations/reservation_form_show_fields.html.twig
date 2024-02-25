@@ -59,26 +59,25 @@
             {% endif %}
         </h4>
 
-        <table class="table">
-            <tr>
-                <th>{{ 'appartment.number'|trans }}</th>
-                <th>{{ 'appartment.description'|trans }}</th>
-                <th>{{ 'reservation.persons'|trans }}</th>
-                <th>{{ 'reservation.status'|trans }}</th>
-                <th>{{ 'reservation.startdate'|trans }}</th>
-                <th>{{ 'reservation.enddate'|trans }}</th>
-            </tr>
-            {% for reservation in reservations %}
-                <tr>
-                    <td>{{ reservation.appartment.number }}</td>
-                    <td>{{ reservation.appartment.description }}</td>
-                    <td>{{ reservation.persons }}</td>
-                    <td>{{ reservation.reservationStatus.name }}</td>
-                    <td>{{ reservation.startdate|date('d.m.Y') }}</td>
-                    <td>{{ reservation.enddate|date('d.m.Y') }}</td>
-                </tr>
-            {% endfor %}
-        </table>
+        <div class="row">
+            <div class="col">{{ 'appartment.number'|trans }}</div>
+            <div class="col">{{ 'appartment.description'|trans }}</div>
+            <div class="col">{{ 'reservation.persons'|trans }}</div>
+            <div class="col">{{ 'reservation.status'|trans }}</div>
+            <div class="col">{{ 'reservation.startdate'|trans }}</div>
+            <div class="col">{{ 'reservation.enddate'|trans }}</div>
+        </div>
+        {% for reservation in reservations %}
+        <div class="row">
+            <div class="col">{{ reservation.appartment.number }}</div>
+            <div class="col">{{ reservation.appartment.description }}</div>
+            <div class="col">{{ reservation.persons }}</div>
+            <div class="col">{{ reservation.reservationStatus.name }}</div>
+            <div class="col">{{ reservation.startdate|date('d.m.Y') }}</div>
+            <div class="col">{{ reservation.enddate|date('d.m.Y') }}</div>
+        </div>
+        {% endfor %}
+
         <div class="row mt-4">
             <div class="col-sm-3">
                 <label for="reservation-remark">{{ 'customer.remark'|trans }}</label>
